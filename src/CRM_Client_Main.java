@@ -1,4 +1,10 @@
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
+
+
 
 
 
@@ -20,7 +26,10 @@ public class CRM_Client_Main {
             CRM_Interface rmi = client.connectServer();
             //Mitglied m = new Mitglied("Stefan", "Mustermann", "3432423423", "max@holl", "PassauerStr. 4", 45454, "NähePassau", 1, "nicht dass ich wüsste", "andy@eracing", "LKW, Fahrrad", "ka", 0, 0, "Bayerisch/Deutsch", 1, "Vorstand");
             //System.out.println(rmi.insertMitglied(m).toString());
-            rmi.selectMitglied("vorname","Stefan");
+            ArrayList <Mitglied> mitglieder = rmi.selectMitglied();
+            for(Iterator<Mitglied> i = mitglieder.iterator(); i.hasNext();){
+                System.out.println(i.next());
+            }
         } catch (Exception e) {
             System.err.println("Fehler: "+e.getMessage());
         } 
