@@ -18,8 +18,9 @@ public class CRM_Client_Main {
             CRM_Client_ServerConnection client = new CRM_Client_ServerConnection();
             CRM_Interface rmi = client.connectServer();
             //INSERT
-            //Mitglied m = new Mitglied("Stefan", "Mustermann", "3432423423", "max@holl", "PassauerStr. 4", 45454, "NähePassau", 1, "nicht dass ich wüsste", "andy@eracing", "LKW, Fahrrad", "ka", 0, 0, "Bayerisch/Deutsch", 1, "Vorstand");
-            //System.out.println(rmi.insertMitglied(m));
+            Mitglied m = new Mitglied("Tom", "Camperman", "343sdf23423", "max@holl", "PassauerStr. 4", 45454, "NähePassau", 1, "nicht dass ich wüsste", "andy@eracing", "LKW, Fahrrad", "ka", 0, 0, "Bayerisch/Deutsch", 1, "Vorstand");
+            Geburtsdaten g = new Geburtsdaten ("1777-07-07","Campercity");
+            System.out.println(rmi.insertMitglied(m,g));
 
             /**
              * SELECT ArrayList <Mitglied> mitglieder =
@@ -47,7 +48,7 @@ public class CRM_Client_Main {
             //DELETE
             //System.out.println(rmi.deleteMitglied(3));
             //UPDATE
-            ArrayList<Mitglied> mitglieder = rmi.selectMitglied("MitgliederID", "3");
+            /*ArrayList<Mitglied> mitglieder = rmi.selectMitglied("MitgliederID", "3");
             String tabs = "\t" + "\t";
             int i = 0;
             System.out.print(mitglieder.get(i).getMitgliederID() + tabs);
@@ -87,10 +88,10 @@ public class CRM_Client_Main {
             int foto_vorhanden = mitglieder.get(i).isFoto_vorhanden();
             String Position = mitglieder.get(i).getPosition();
             Mitglied m = new Mitglied(mitglID, vorname, name, telefonnr, email, strasse_Hsnr, plz, ort, angemeldet, studiumGenerale, email_eRacing, fuehrerschein, vermerk, werkstattregeln, serverzugang, staatsangehoerigkeit, foto_vorhanden, Position);
-            m.setVorname("Thomas");
+            m.setVorname("Tommy");
             m.setVermerk("nach Regensburg gewechselt");
             m.setAngemeldet(1);
-            m.setName("Welll");
+            m.setName("Gun");
             System.out.println(rmi.updateMitglied(m));
             ArrayList<Mitglied> mitgliederNeu = rmi.selectMitglied("MitgliederID", "3");
             System.out.print(mitgliederNeu.get(i).getMitgliederID() + tabs);
@@ -111,7 +112,7 @@ public class CRM_Client_Main {
             System.out.print(mitgliederNeu.get(i).getStaatsangehoerigkeit() + tabs);
             System.out.print(mitgliederNeu.get(i).isFoto_vorhanden() + tabs);
             System.out.print(mitgliederNeu.get(i).getPosition() + "\n");
-
+            */
         } catch (Exception e) {
             System.err.println("Fehler: " + e.getMessage());
         }
