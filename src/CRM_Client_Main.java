@@ -19,12 +19,16 @@ public class CRM_Client_Main {
             CRM_Client_ServerConnection client = new CRM_Client_ServerConnection();
             CRM_Interface rmi = client.connectServer();
             //INSERT
-            //Mitglied m = new Mitglied("Tomandy", "GeeTeeA", "6633663", "max@holl", "PassauerStr. 4", 45454, "NähePassau", 1, "andy@eracing", "LKW, Fahrrad", "ka", 0, 0, "Bayerisch/Deutsch", 1, "Vorstand");
-            //Geburtsdaten g = new Geburtsdaten ("1899-08-08","Los Santos");
-            //System.out.println(rmi.insertMitglied(m,g));
-            rmi.updateSemester();
+            Mitglied m = new Mitglied("Rob", "K", "0800/3333333", "robK@cha.de", "Debrecen Str. 4", 6948, "Debrecen", 1, "rob@eracing", "Dreirad + Hilfsrad", "" , 1, 1, "Ungarisch", 1, "Vorstand");
+            Geburtsdaten g = new Geburtsdaten ("1989-05-07","Oxford");
+            Kontodaten k = new Kontodaten("Sparkasse", 96548985, 594166, "6544fswdf", "BYfsd92");
+            Mitgliedsstatus ms = new Mitgliedsstatus("2015-03-30", null ,"aktiv");
+            Studiuminfo si = new Studiuminfo(4, "WIF");
+            Team t = new Team("Vorstandschaft");
+            System.out.println(rmi.insertMitglied(m,g,k,ms,si,t));
+            //rmi.updateSemester();
             //SELECT
-            ArrayList <Mitglied > mitglieder = rmi.selectMitglied("Foto_vorhanden", "1");                    
+            /*ArrayList <Mitglied > mitglieder = rmi.selectMitglied("Foto_vorhanden", "1");                    
             String tabs = "\t" + "\t";
             for (int i = 0; i < mitglieder.size(); i++) {
                 System.out.print(mitglieder.get(i).getMitgliederID() + tabs);
@@ -44,7 +48,7 @@ public class CRM_Client_Main {
                 System.out.print(mitglieder.get(i).getStaatsangehoerigkeit() + tabs);
                 System.out.print(mitglieder.get(i).isFoto_vorhanden() + tabs);
                 System.out.print(mitglieder.get(i).getPosition() + "\n");
-            }
+            }*/
 
             //DELETE
             //System.out.println(rmi.deleteMitglied(4));
